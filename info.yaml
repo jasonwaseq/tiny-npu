@@ -3,7 +3,7 @@ project:
   title:        "Tiny Binary NPU"      # Project title
   author:       "jasonwaseq"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "Fixed-weight 8-bit binary neural classifier with serial XNOR-popcount inference"      # One line description of what your project does
+  description:  "Two-layer serial binary MLP with 8 hidden neurons, 4 output heads, and debug hidden-state pins"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     10000000       # Clock frequency in Hz (or 0 if not applicable)
 
@@ -33,24 +33,24 @@ pinout:
   ui[7]: "feature_bit_7"
 
   # Outputs
-  uo[0]: "class"
-  uo[1]: "busy"
+  uo[0]: "class_bit_0"
+  uo[1]: "class_bit_1"
   uo[2]: "valid"
-  uo[3]: "score_bit_0"
-  uo[4]: "score_bit_1"
-  uo[5]: "score_bit_2"
-  uo[6]: "score_bit_3"
-  uo[7]: "all_match"
+  uo[3]: "busy"
+  uo[4]: "confidence_bit_0"
+  uo[5]: "confidence_bit_1"
+  uo[6]: "confidence_bit_2"
+  uo[7]: "confidence_bit_3"
 
   # Bidirectional pins
   uio[0]: "start"
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[1]: "hidden_bit_0"
+  uio[2]: "hidden_bit_1"
+  uio[3]: "hidden_bit_2"
+  uio[4]: "hidden_bit_3"
+  uio[5]: "hidden_bit_4"
+  uio[6]: "hidden_bit_5"
+  uio[7]: "hidden_bit_6"
 
 # Do not change!
 yaml_version: 6

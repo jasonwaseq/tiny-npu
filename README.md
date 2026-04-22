@@ -1,17 +1,16 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
 
-# Tiny NPU
+# Tiny MLP NPU
 
-This Tiny Tapeout project implements a fixed-weight 8-input binary neural classifier. It evaluates one bit per clock, accumulates a match score, and compares the score against a threshold to emit a class bit.
+This Tiny Tapeout project implements a fixed-weight two-layer binary MLP. It evaluates eight hidden neurons serially over the input vector, then runs a second serial output layer to select a 2-bit class and confidence score.
 
 Outputs are mapped as follows:
-- `uo_out[0]`: class
-- `uo_out[1]`: busy
+- `uo_out[1:0]`: class index
 - `uo_out[2]`: valid
-- `uo_out[6:3]`: score/debug
-- `uo_out[7]`: perfect-match flag
+- `uo_out[3]`: busy
+- `uo_out[7:4]`: confidence
 
-Start the inference by pulsing `uio_in[0]` high while the 8-bit feature vector is present on `ui_in[7:0]`.
+Start the inference by pulsing `uio_in[0]` high while the 8-bit feature vector is present on `ui_in[7:0]`. The hidden activation vector is exposed on `uio[7:1]` for debug.
 
 ## Files
 
