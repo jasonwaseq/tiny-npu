@@ -1,6 +1,6 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
 
-# Tiny Binary NPU
+# Tiny NPU
 
 This Tiny Tapeout project implements a fixed-weight 8-input binary neural classifier. It evaluates one bit per clock, accumulates a match score, and compares the score against a threshold to emit a class bit.
 
